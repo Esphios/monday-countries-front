@@ -1,0 +1,30 @@
+{
+    "categories": [
+      {
+        "index": 0,
+        "category": "All Info",
+        "data": ["region", "subregion", "capital", "location", "iso3", "iso2", "tld", "phone_code", "currency", "currency_name", "timezones", "latitude", "longitude", "numbers", "numbers6", "numbers2", "numbers0", "numbers7", "numbers9", "numbers8"]
+      },
+      {
+        "index": 1,
+        "category": "Geographic",
+        "data": ["capital", "latitude", "longitude"]
+      },
+      {
+        "index": 2,
+        "category": "Administrative and Communication",
+        "data": ["iso3", "iso2", "tld", "phone_code"]
+      },
+      {
+        "index": 3,
+        "category": "Economic and Financial",
+        "data": ["currency", "currency_name", "numbers7", "numbers", "numbers2"]
+      },
+      {
+        "index": 4,
+        "category": "Social and Demographic Statistics",
+        "data": [ "numbers6", "numbers0", "numbers9", "numbers8"]
+      }
+    ]
+  }
+  

@@ -1,0 +1,54 @@
+{
+  "name": "monday-countries-front",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "npm run stop && concurrently \"npm run server\" \"npm run expose\"",
+    "build": "react-scripts build",
+    "expose": "mapps tunnel:create -p 3000",
+    "server": "react-scripts start",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "stop": "kill-port 3000 && kill-port 4049 && kill-port 4040"
+  },
+  "dependencies": {
+    "@mondaycom/apps-sdk": "^3.0.7",
+    "@svgr/plugin-svgo": "^8.1.0",
+    "@svgr/webpack": "^8.1.0",
+    "bootstrap": "^5.3.3",
+    "css-select": "^5.1.0",
+    "monday-sdk-js": "^0.5.5",
+    "react-bootstrap": "^2.10.2",
+    "resolve-url-loader": "^5.0.0",
+    "svgo": "^3.3.2"
+  },
+  "resolutions": {
+    "nth-check": "2.0.1",
+    "postcss": "8.4.31"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@mondaycom/apps-cli": "^2.6.1",
+    "concurrently": "^8.2.2",
+    "cross-port-killer": "^1.2.1",
+    "eslint-config-react-app": "^7.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "^5.0.1",
+    "sass": "^1.77.5"
+  }
+}
