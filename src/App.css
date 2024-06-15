@@ -3,15 +3,3 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.App {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: top;
-}
-
-.SearchBox {
-  width: 100%;
-  padding: 30px;
-}
