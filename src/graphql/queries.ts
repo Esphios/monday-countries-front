@@ -61,6 +61,7 @@ export const GET_ALL_ITEMS_PAGE = `
 export const GET_ITEMS = `
   query GetItems($ids: [ID!]!, $columns: [String!]!) {
     items(ids: $ids) {
+      id
       column_values(ids: $columns) { 
         column {
           id
