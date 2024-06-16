@@ -46,7 +46,6 @@ export const fetchItems = async (columns: any[], ids: string[]): Promise<any[]> 
     const response = await monday.api(GET_ITEMS, {
       variables: { columns, ids },
     });
-    console.log(response.data)
     return response.data.items;
   } catch (error) {
     console.error("Error fetching items:", error);

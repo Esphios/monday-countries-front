@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+      "module": "commonjs",
       "target": "es5",
       "lib": ["dom", "es2017"],
       "jsx": "react",
@@ -8,7 +9,7 @@
       "esModuleInterop": true,
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true,
-      "module": "commonjs",
+      "allowSyntheticDefaultImports": true
     },
     "include": ["src"]
   }
