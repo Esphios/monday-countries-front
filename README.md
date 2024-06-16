@@ -39,6 +39,13 @@ cd repository
 npm install
 ```
 
+4. Create a .env file in the root directory of the project and add your WeatherAPI url and port:
+
+```env
+REACT_APP_EXPOSE_PORT=3000
+REACT_APP_WEATHER_API_URL=http://localhost:4000/weather
+```
+
 ## Usage
 
 1. Start the front-end application locally:
