@@ -1,7 +1,12 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 
-const SearchBox = ({ searchQuery, handleChange }) => {
+interface Props {
+  searchQuery: string;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const SearchBox: React.FC<Props> = ({ searchQuery, handleChange }) => {
   return (
     <Form.Control
       type="text"

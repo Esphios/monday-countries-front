@@ -1,7 +1,34 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-const CountryModal = ({ show, onHide, rowData }) => {
+interface Props {
+  show: boolean;
+  onHide: () => void;
+  rowData: {
+    id: string;
+    name: string;
+    additionalData: {
+      [key: string]: any;
+    };
+  } | null; 
+}
+
+const CountryModal: React.FC<Props> = ({ show, onHide, rowData }) => {
+  const renderCellValue = (headerId: string, value: any) => {
+    if (typeof value === 'object' && value !== null) {
+      if (headerId === 'location') {
+        return `${value.lat}, ${value.lng}`;
+      } else if (headerId === 'timezones') {
+        const timezones = JSON.parse(value);
+        return timezones.map((zone: any) => zone.zoneName).join(', ');
+      } else {
+        return JSON.stringify(value); 
+      }
+    } else {
+      return value;
+    }
+  };
+
   return (
     <Modal show={show} onHide={onHide}>
       <Modal.Header closeButton>
@@ -28,21 +55,6 @@ const CountryModal = ({ show, onHide, rowData }) => {
       </Modal.Footer>
     </Modal>
   );
-};
-
-const renderCellValue = (headerId, value) => {
-  if (typeof value === 'object' && value !== null) {
-    if (headerId === 'location') {
-      return `${value.lat}, ${value.lng}`;
-    } else if (headerId === 'timezones') {
-      const timezones = JSON.parse(value);
-      return timezones.map((zone) => zone.zoneName).join(', ');
-    } else {
-      return JSON.stringify(value); 
-    }
-  } else {
-    return value;
-  }
 };
 
 export default CountryModal;
