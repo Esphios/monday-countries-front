@@ -1,4 +1,4 @@
-# Monday Countries - FrontEnd
+﻿# Monday Countries - FrontEnd
 
 ## Description
 
@@ -28,7 +28,6 @@ git clone https://github.com/Esphios/monday-countries-front
 
 2. Navigate into the project directory:
 
-
 ```bash
 cd repository
 ```
@@ -39,7 +38,13 @@ cd repository
 npm install
 ```
 
-4. Create a .env file in the root directory of the project and add your WeatherAPI url and port:
+For reproducible installs in CI or on a fresh clone after the lockfile is committed, prefer:
+
+```bash
+npm ci
+```
+
+4. Create a `.env` file in the root directory of the project and add your WeatherAPI url and port:
 
 ```env
 REACT_APP_EXPOSE_PORT=3000
@@ -53,6 +58,7 @@ REACT_APP_WEATHER_API_URL=http://localhost:4000/weather
 ```bash
 npm start
 ```
+
 2. Access the monday.com Board View specified to view the integrated UI at http://localhost:3000.
 
 ## Technologies Used
