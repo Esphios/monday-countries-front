@@ -1,7 +1,17 @@
 import axios from 'axios';
 
+const weatherApiUrl =
+  import.meta.env.VITE_WEATHER_API_URL ||
+  import.meta.env.REACT_APP_WEATHER_API_URL ||
+  '';
+
+if (!weatherApiUrl) {
+  throw new Error('REACT_APP_WEATHER_API_URL or VITE_WEATHER_API_URL must be configured.');
+}
+
 const apiClient = axios.create({
-  baseURL: process.env.REACT_APP_WEATHER_API_URL,
+  baseURL: weatherApiUrl,
+  timeout: 5000,
   headers: {
     'Content-Type': 'application/json',
   },

@@ -6,10 +6,9 @@ import SearchBox from "./components/SearchBox";
 
 import categoriesData from './assets/categories/categories.json';
 import Country from './classes/country';
+import * as mondayService from './services/mondayService';
 
 import "./App.css";
-
-const mondayService: any = require("./services/mondayService");
 
 
 interface ItemData {
@@ -19,13 +18,18 @@ interface ItemData {
 }
 
 const App: React.FC = () => {
-  const [category, setCategory] = useState<any>({});
+  const [category, setCategory] = useState<{ data?: string[] }>({});
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [countries, setCountries] = useState<Country[]>([]);
   const [columns, setColumns] = useState<Header[]>([]);
 
-  const handleSearch = useCallback(async (value: string, cat?: any) => {
+  const handleSearch = useCallback(async (value: string, cat?: { data?: string[] }) => {
     const categ = cat || category;
+    if (!categ.data?.length) {
+      setCountries([]);
+      return;
+    }
+
     try {
       const itemsPage = await mondayService.fetchItemsPage(value);
       const countryObjects = itemsPage.map((item: { id: string; name: string }) => new Country(item.id, item.name));
@@ -36,10 +40,14 @@ const App: React.FC = () => {
 
       if (data) {
         data.forEach((itemData: ItemData) => {
-          const country = countryObjects.find((country: any) => country.id === itemData.id);
+          const country = countryObjects.find((country) => country.id === itemData.id);
+          if (!country) {
+            return;
+          }
+
           itemData.column_values.forEach((column) => {
             const columnId = column.column.id;
-            const value = JSON.parse(column.value);
+            const value = column.value ? JSON.parse(column.value) : null;
             country.addData(columnId, value);
           });
         });
